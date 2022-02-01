@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/boostrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+     <script src="https://twitter.github.io/typehead.js/js/handlebars.js"></script>
+    <title>Document</title>
+    <style>
+        .d1 {
+            width: 300px;
+            height: 500px;
+
+
+            border: 1px solid rgb(250, 247, 247);
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+
+        .circle {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            width: 200px;
+            height: 200px;
+            border-radius: 150px;
+           
+            background-color: pink;
+            border: none;
+            margin-left: 50px;
+            margin-top: 10px;
+            margin-bottom: 67px;
+
+        }
+
+        .fields {
+
+            padding-left: 50px;
+        }
+
+        .fields input {
+            width: 150px;
+            border: none;
+            border-bottom: 1px solid #6565da;
+            outline: none;
+        }
+
+        .savename {
+            border: none;
+            background-color: #6565da;
+            border-radius: 5px;
+            color: white;
+            width: 50px;
+            padding-left: 5px;
+            padding-right: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .d2 {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            width: 300px;
+            height: 500px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .sinp {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            padding-left: 10px;
+            height: 30px;
+        }
+
+        .searchbar {
+
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .textar {
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .seresults {
+            margin-top: 35px;
+            height: 400px;
+
+            overflow-y: scroll;
+        }
+
+        .seresults::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sebut {
+            border: none;
+            background-color: rgb(78, 66, 245);
+            color: white;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+
+        }
+
+        .re {
+            border-top: 1px solid rgb(228, 223, 223);
+
+
+        }
+
+        .d3 {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            width: 400px;
+            height: 500px;
+            border-radius: 5px;
+            
+        }
+        .chatbtn{
+            background-color: #6565da;
+            color:white;
+            border:none;
+            border-radius:5px;
+            margin-bottom: 2px;
+            cursor: pointer;
+
+        }
+        .profile {
+            width: 70px;
+            height: 70px;
+            
+            margin-left: 5px;
+            border-radius: 35px;
+            margin-top: 5px;
+        }
+        .circlep{
+            width: 70px;
+            height: 70px;
+            
+            background-color: antiquewhite;
+            border-radius: 35px;
+           
+        }
+
+        .profileu {
+            width: 40px;
+            height: 40px;
+            
+            margin-left: 5px;
+            border-radius: 50%;
+            margin-bottom: 2px;
+
+
+        }
+        .circleu{
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+           background-color:rgb(206, 200, 200);
+           
+            border-radius: 50%;
+            
+        }
+
+        .chatarea {
+            margin-top: 5px;
+
+            height: 390px;
+            overflow-y: scroll;
+        }
+
+        .chatarea::-webkit-scrollbar {
+            display: none;
+        }
+        .uplpic{
+            color:white;
+            background-color:  rgb(238, 155, 206);
+            border:none;
+            border-radius:5px;
+            cursor: pointer;
+           
+
+        }
+        .fup{
+            text-align: center;
+            margin-bottom: 3px;
+        }
+        .upl{
+          
+ 
+  background-color: rgb(21, 41, 226);
+  color: white;
+  padding-left: 0.5rem;
+  padding-right:0.5rem;
+  
+  border-radius: 0.3rem;
+  cursor: pointer;
+ 
+}
+       
+
+
+        .send {
+            outline: none;
+            border: 1px solid rgba(137, 9, 243, 0.911);
+            border-radius: 5px;
+            background-color: rgba(137, 9, 243, 0.911);
+            color: white
+        }
+
+        .textsend {
+            border: 2px solid rgb(238, 232, 232);
+            outline: none;
+            border-radius: none;
+
+
+        }
+      
+
+        .c {
+            color: hotpink;
+        }
+
+        .read {
+            width: 100%;
+        }
+      .users{
+          margin-left:10px;
+      }
+        .userna {
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            margin-right: 20px;
+        }
+
+
+        /**chat css**/
+        
+.msger-chat {
+            flex: 1;
+            height:390px;
+            overflow-y: scroll;
+            padding: 10px;
+           
+        }
+
+        .msger-chat::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .msger-chat::-webkit-scrollbar-track {
+            background: #ddd;
+        }
+
+        .msger-chat::-webkit-scrollbar-thumb {
+            background: #bdbdbd;
+        }
+
+        .msger-chat::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .msg {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .msg:last-of-type {
+            margin: 0;
+        }
+
+        .msg-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-color: rgb(240, 226, 226);
+
+            border-radius: 50%;
+        }
+
+        .msg-bubble {
+            max-width: 200px;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: rgb(228, 217, 217);
+        }
+
+        .msg-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .msg-info-name {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .msg-info-time {
+            font-size: 0.85em;
+        }
+
+        .left-msg .msg-bubble {
+            border-bottom-left-radius: 0;
+        }
+
+        .right-msg {
+            flex-direction: row-reverse;
+        }
+
+        .right-msg .msg-bubble {
+            background-color: hotpink;
+            color: white;
+            border-bottom-right-radius: 0;
+        }
+
+        .right-msg .msg-img {
+            margin: 0 0 0 10px;
+        }
+    </style>
+</head>
+
+<body onload="myFunction()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+
+
+                <nav class="navbar  navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">CHAT Application</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+
+                            
+                            <li class="nav-item">
+                                <a onclick="logout()" class="nav-link" >logout</a>
+                            </li>
+                            
+
+                        </ul>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="uid" value="<%=idd%>">
+   
+   <%# chats %>
+    <div class="container-fluid mt-5 ">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto d-flex justify-content-sm-around">
+                <div class="row">
+                    <div class="col-md-4 col-12 order-0 mb-5">
+                        <div class="d1">
+                            <div class="d11">
+                                    
+                                <img src="images/<%=dpp%>" class="circle">
+                                     
+                                <form action="/chatpage" method="POST" class="fup" enctype="multipart/form-data">
+                                    <input type="file" id="upload" name="profileimage" hidden>
+                                    <label for="upload" class="upl">Choose file</label>
+                                    <button  class="uplpic"  value="upload">upload pic</button>
+                                </form>
+                            </div>
+
+                            <div class="fields">
+                                <form action="/chatpage" method="POST">
+                                    <input type="text" name="name" value="<%=name%>" id="pname" />
+                                    <button  class="savename" value="save">save</button><br><br>
+                                </form>
+                                <form action="/chatpage" method="POST">
+                                    <input type="email" name="email" value="<%=emaild%>" />
+                                    <button  class="savename" value="save">save</button><br><br>
+                                </form>
+                                <form action="/chatpage" method="POST">
+                                    <input type="text" name="status" value="<%=status%>" />
+                                    <button  class="savename" value="save">save</button>
+                                    
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 order-1 mb-5">
+                        <div class="d2">
+                            <div class="searchbar">
+                                <form>
+                                    <input type='text' id="sebar" onkeyup="search()" placeholder="search here..." name="ser" class="sinp">
+                                   <!--<button type="submit" class="sebut"> search</button>---> 
+                                </form>
+                            </div>
+                            <div class="seresults">
+                               
+                                <% data.forEach(function(dd){ %>
+                              
+
+                                <%if(dd.emailid!=emaild) { %>
+                                <div class="re">
+                                    <p class="emid" hidden><%=dd.emailid%></p>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="profile">
+                                                
+                                                <% if(dd.dp){%>
+
+                                                <img src="images/<%=dd.dp%>" class="circlep">
+                                                <%} else{%>
+                                                    <div class="circlep"></div>
+                                                    <%}%>
+                                                   
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-8 d-flex justify-content-center align-items-start flex-column">
+                                            <p ><%= dd.name%><br>
+                                                <span><%= dd.status%></span>
+                                            </p>
+                                            <form >
+                                                <!--<input type="hidden" id="secid" name="secuserid" value="<%= dd.id%>">
+                                                <input type="hidden" id="secna"  value="<%= dd.name%>">-->
+                                                <button type="button" onclick="onUserSelected('<%=dd.id%>','<%=dd.name%>')" class="chatbtn">chat</button>
+                                            </form>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <%} %>
+                                <% });%>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 order-2 mb-5">
+                        <div class="d3">
+                            <div class="userna d-flex  ">
+                                <div class="profileu mr-2 mt-2">
+                                  
+
+                                        <img id="cpro" src="" class="circleu"/>
+                                       
+                                            
+                                          
+                                    
+                                </div>
+                                <div class="users d-flex justify-content-center align-items-start flex-column">
+                                
+                                        <span id="secounname"></span>
+                                            
+                                        
+                                        <strong><span id="typid" style="color:rgba(120, 90, 230, 0.89)"></span></strong>
+                                       
+                                        
+                                       
+                                    
+                                  
+
+                                </div>
+                            </div>
+                            <div class="chatarea">
+                                <div class="msger-chat" id="msger-chat">
+                                   
+                                    
+                                   
+                                           
+                                            
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="textar text-align-center">
+                            <div>
+                                <form  class="msger-inputarea" >
+                                    <input type="text" onkeyup="typeingof()" class="textsend"   name="mssg" onkeydown="typing()"  id="msggg" placeholder="Message">
+                                   <!--onkeyup="typeingof()"--> 
+
+                                    <button type="button" onclick="sendMessage()"  class="send">send</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div style="display:flex;justify-content: center;position: absolute;bottom:0;margin:0 auto;width:100%;background-color:rgb(7, 7, 112) ;color:white">
+        <p>Copyright &copy; 2020</p>
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <%# javascript %>
+    <script>
+
+
+        /*function chating(nam,x){
+
+          alert(nam+x);
+          document.getElementById("inid").value=x;
+         
+        }*/
+        function search(){
+	        var searc = document.getElementById('sebar').value.toLowerCase();
+            let x = document.getElementsByClassName('re');
+            let y=document.getElementsByClassName("emid");
+
+           var c=0;
+            for (i = 0; i < y.length; i++) { 
+              if (!y[i].innerHTML.toLowerCase().includes(searc)) {
+                  x[i].style.display="none";
+                  c++;  
+            }
+             else {
+                x[i].style.display="";     
+                         
+            }
+            }
+           
+            if(c==y.length)
+            {
+               alert("no user found");
+            }
+           
+           
+	
+	}
+    function logout(){
+        $.ajax({
+        url:"http://localhost:3000/logout",
+        method:"POST",
+        data:{
+            
+        },
+        success:function(response){
+          
+
+         if(response=="1")
+         {
+            window.location.href='/';
+         }
+        }
+    })
+    }
+
+
+    function onUserSelected(rid,rname) {
+    // save selected user in global variable
+    console.log("on user selected");
+    receiver =rid;
+    console.log(sender);
+    console.log(rid);
+    
+    var msgarea = document.querySelector('#msger-chat');
+    var msarea=document.getElementById("msger-chat");
+    
+    msarea.innerHTML="";
+   
+    //document.getElementById("msger-chat").innerHTML="";
+    //msgarea.remove();
+    rname=rname;
+    document.getElementById('secounname').innerHTML=rname;
+    $.ajax({
+        url:"http://localhost:3000/get_profilepic",
+        method:"POST",
+        data:{
+            receiver:receiver
+        },
+        success:function(response){
+           console.log(response);
+
+           $("#cpro").attr('src', "images/"+response);
+        }
+    })
+    
+    $.ajax({
+        url: "http://localhost:3000/get_message",
+        method: "POST",
+        data: {
+          sender: sender,
+          receiver: receiver
+        },
+        success: function (response) {
+          console.log(response);
+   
+          var messages = JSON.parse(response);
+          console.log(messages);
+          var html = "";
+          var htmll="";
+           
+          for (var a = 0; a < messages.length; a++) {
+              console.log(messages[a].outid==sender);
+              if(messages[a].outid==sender)
+              {
+                  htmll=sender_name +" "+messages[a].msg;
+                  console.log(htmll);
+                  
+            html = "<div class='msg right-msg' id='rm'>"+
+            "<div class='msg-img'></div>"+
+            "<div class='msg-bubble'>" +
+               "<div class='msg-info'>"+
+                    "<div class='msg-info-name'>"+sender_name+"</div>"+
+                    "<div class='msg-info-time'>"+messages[a].date+"</div>"+
+                "</div>"+
+
+                "<div class='msg-text'>"+
+                    messages[a].msg
+                "</div>"+
+            "</div>"+
+        "</div>";
+       // msgarea.append(html);
+       msgarea.innerHTML+=html;
+       document.getElementById('msger-chat').scrollTop +=200;
+          }
+          else{
+            htmll=rname +" "+messages[a].msg;
+            console.log(htmll);
+            html= "<div class='msg left-msg' id='rm'>"+
+            "<div class='msg-img'></div>"+
+            "<div class='msg-bubble'>" +
+               "<div class='msg-info'>"+
+                    "<div class='msg-info-name'>"+rname+"</div>"+
+                    "<div class='msg-info-time'>"+messages[a].date+"</div>"+
+                "</div>"+
+
+                "<div class='msg-text'>"+
+                    messages[a].msg
+                "</div>"+
+            "</div>"+
+        "</div>";
+        //msgarea.append(html);
+        msgarea.innerHTML+=html;
+        document.getElementById('msger-chat').scrollTop +=200;
+          }
+        }
+          // append in list
+          
+         
+        }
+      });
+      
+  }
+
+       
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    
+     <script src="socket.io/socket.io.js"></script>
+     <script src="script.js"></script>
+</body>
+
+</html>

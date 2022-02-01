@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="css" href="../../public/css/style.css" />
+  <link rel="stylesheet" href="../css/boostrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <title>Document</title>
+  <style>
+    .login_form {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+    
+  }
+  h1{
+    color:pink;
+  }
+  .freg {
+    position: relative;
+    z-index: 1;
+    background: #6262f7;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 20px;
+  }
+  .freg input {
+     
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  .freg button {
+     
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .freg button:hover,.freg button:active,.freg button:focus {
+    background: #43A047;
+  }
+  .freg .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 15px;
+  }
+  .freg .message a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+ 
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .aboutcont{
+    border-radius: 20px;
+    border-bottom-right-radius: 0px;
+    width:100%;
+    height:200px;
+    background-color:rgb(247, 14, 111);
+    color:white;
+    padding:8px;
+  }
+  .container:before, .container:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .dd{
+    display: none;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+
+
+        <nav class="navbar  navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#"><strong style="color:rgb(247, 14, 111)">Chat Application</strong></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item">
+                <a class="nav-link" href="#home">home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#aboutus">about us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contactus">contact us</a>
+              </li>
+
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+   
+  <p id="home"  ></p>
+  <div class='container-fluid'>
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+        <div class="row">
+          <div class="col-md-6 col-12 order-md-0 order-1 d-flex justify-content-center align-items-start flex-column">
+            <div class="">
+              <h1 class="mt-5" style="color:rgb(240, 15, 83)">WELCOME TO OUR CHAT APPLICATION</h1>
+              <div class="d-flex">
+              <form  class="freg" id="regf" action="/register" method="POST">
+                <input type="text" placeholder="Name" name="name"/>
+                <input type="password" placeholder="Password"  name="password" />
+                <input type="password" placeholder="Comform Password" name="passwordc"/>
+                <input type="text" placeholder="Email Address" name="email" />
+                <button>create</button>
+                <p class="messagee">Already registered? Login Here</p>
+                
+              </form>
+              <form  class="freg" id="logf" >
+                <input type="text" id="le" placeholder="Username" name="email"/>
+                <input type="password" id="pe" placeholder="Password" name="password" />
+                <button onclick="login()">login</button>
+                <p class="message">Not registered? Create an account</p>
+              </form>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12 order-md-0 order-1">
+            <img src="7495.jpg" width="100%" height="100%">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr style="width:70%;">
+  <p id="aboutus"  ></p>
+  <h1 style="display:flex; justify-content:center;color:rgb(240, 15, 83)">ABOUT US</h1>
+ 
+  <div class="container-fluid">
+        <div class="row ">
+         
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="row">
+                    <div class="col-md-6 col-12 order-md-0 order-1">
+                     
+                        <img src="about.jpg" width="100%" height="100%" />
+                    </div>
+                    <div class=" col-md-6 col-12 order-md-0 order-1 d-flex justify-content-center align-items-start flex-column">
+                      <div class="aboutcont">
+                        <p>This is the chat application, create an account and enjoy with the online friends.</p>
+                        <p>The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim of occupying the spaces of a website, an advertising product or an editorial production whose final text is not yet ready. This expedient serves to get an idea of the finished product that will soon be printed or disseminated via digital channels.</p>
+                      </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="width:70%;">
+    <p id="contactus"  ></p>
+    <!----contact us-->
+    <h1 style="display:flex; justify-content:center;color:rgb(240, 15, 83)">Hey There</h1>
+    <div class="container-fluid">
+          <div class="row " >
+            <div class="col-md-10 col-12 mx-auto">
+              <div class="row">
+                  <div class="col-md-6 col-12 order-md-0 order-1">
+                   
+                      <img src="contactus.jpg" width="100%" height="100%" />
+                  </div>
+                  <div class=" col-md-6 col-12 order-md-0 order-1 d-flex justify-content-center align-items-start flex-column">
+                    <form action="/contactus" method="POST">
+                      <input type="text" style="width:300px;padding:2px;outline:none;border:1px solid gray;border-radius:4px" name="ctname" placeholder="Name"><br><br>
+                      <input type="email" style="width:300px;padding:2px;outline:none;border:1px solid gray;border-radius:4px"  name="ctemail" placeholder="Email"><br><br>
+                      <textarea placeholder="message" style="width:300px;outline:none;padding:2px" name="cttxt"></textarea><br><br>
+                      <button type="submit" style="color:white;background-color:rgb(240, 15, 83) ;outline:none;border:none;cursor:pointer;border-radius:5px">submit</button>
+      
+                    </form>
+                  </div>
+              </div>
+          </div>
+         
+          </div>
+      </div>
+      <div style="display:flex;justify-content: center; background-color:rgb(7, 7, 112) ;color:white">
+        <p>Copyright &copy; 2020</p>
+      </div>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="js/socket.io.js"></script>
+<script>
+function login(){
+  var email=document.getElementById("le").value;
+  var pass=document.getElementById("pe").value;
+  console.log(email);
+  console.log(pass);
+  
+  $.ajax({
+        url: "http://localhost:3000/login",
+        method: "POST",
+        data: {
+          email: email,
+          pass: pass
+        },
+        success: function (response) {
+          console.log(response);
+          if(response=="1")
+          {
+            window.location.href='/chatpage';
+          }
+          else{
+            alert("INVALID LOGIN CREDENTIALS");
+          }
+   
+        }
+      });
+      
+}
+
+  $( document ).ready(function() {
+    $('#regf').hide();
+});
+  $('.messagee').click(function(){
+   
+   $('#regf').hide();
+    $('#logf').show();
+});
+$('.message').click(function(){
+   
+  $('#regf').show();
+    $('#logf').hide();
+
+});
+
+
+
+</script>
+</body>
+
+</html>
